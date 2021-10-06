@@ -1,6 +1,6 @@
 <!-- Please update value in the {}  -->
 
-<h1 align="center">Calculator JS 🖩</h1>
+<h1 align="center">Calculator JS 🧮</h1>
 
 <div align="center">
  Calculator made with HTML, CSS and JavaScript
@@ -32,8 +32,10 @@ $ git clone https://github.com/GonzaloMB/calculator-js
 $ start index.html
 
 ```
+## Demo 🎮🕹️
 
-https://user-images.githubusercontent.com/55688528/136198221-8cbefb0a-2cfe-4678-bf72-9ea3ca42b531.mp4
+https://user-images.githubusercontent.com/55688528/136225373-272adbe9-8fc4-4747-bf12-b04d4eda9fd6.mp4
+
 
 ## Built With 🛠️
 
