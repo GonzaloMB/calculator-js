@@ -82,7 +82,7 @@ class Calculator {
     }
   }
 
-  updateDisplay(number) {
+  updateDisplay() {
     this.currentOperandTextElement.innerText = this.getDisplayNumber(
       this.currentOperand
     );
