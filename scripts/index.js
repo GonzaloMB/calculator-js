@@ -19,7 +19,9 @@ class Calculator {
       this.currentOperand = -Math.abs(this.currentOperand).toString();
     }
   }
-
+  percent() {
+    this.currentOperand = this.currentOperand / 100;
+  }
   appendNumber(number) {
     if (number === "." && this.currentOperand.includes(".")) return;
     this.currentOperand = this.currentOperand.toString() + number.toString();
@@ -80,7 +82,7 @@ class Calculator {
     }
   }
 
-  updateDisplay() {
+  updateDisplay(number) {
     this.currentOperandTextElement.innerText = this.getDisplayNumber(
       this.currentOperand
     );
@@ -88,6 +90,10 @@ class Calculator {
       this.previousOperandTextElement.innerText = `${this.getDisplayNumber(
         this.previousOperand
       )} ${this.operation}`;
+    } else if (isNaN(this.currentOperand)) {
+      this.previousOperandTextElement.innerText = "";
+      this.currentOperandTextElement.innerText = "Error";
+      this.currentOperand = NaN;
     } else {
       this.previousOperandTextElement.innerText = "";
     }
@@ -98,6 +104,7 @@ const numberButtons = document.querySelectorAll("[data-number]");
 const operationButtons = document.querySelectorAll("[data-operation]");
 const equalsButton = document.querySelector("[data-equals]");
 const changSymbButton = document.querySelector("[data-pos-neg]");
+const percentButtons = document.querySelector("[data-percent]");
 const allClearButton = document.querySelector("[data-all-clear]");
 const previousOperandTextElement = document.querySelector(
   "[data-previous-operand]"
@@ -128,6 +135,7 @@ operationButtons.forEach((button) => {
 equalsButton.addEventListener("click", (button) => {
   calculator.compute();
   calculator.updateDisplay();
+  calculator.clear();
 });
 
 allClearButton.addEventListener("click", (button) => {
@@ -137,5 +145,10 @@ allClearButton.addEventListener("click", (button) => {
 
 changSymbButton.addEventListener("click", (button) => {
   calculator.changeSymbol();
+  calculator.updateDisplay();
+});
+
+percentButtons.addEventListener("click", (button) => {
+  calculator.percent();
   calculator.updateDisplay();
 });
